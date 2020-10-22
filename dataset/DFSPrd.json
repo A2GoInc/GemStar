@@ -1,0 +1,88 @@
+{
+	"name": "DFSPrd",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQLPRD",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Date",
+				"type": "date"
+			},
+			{
+				"name": "CustomerId",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "SubcategoryId",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "State",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PilotTime",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "IsOutlier",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AorB",
+				"type": "nvarchar"
+			},
+			{
+				"name": "GrossMargin",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Revenue",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Confidence",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ValueType",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IsActive",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TenantId",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CreationDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "ItemsAmount",
+				"type": "float",
+				"precision": 15
+			}
+		],
+		"typeProperties": {
+			"schema": "DFS",
+			"table": "PBIConfidenceRaw"
+		}
+	}
+}

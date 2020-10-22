@@ -1,0 +1,260 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "gsa2goadf"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
+		},
+		"GemStarDB_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'GemStarDB'"
+		},
+		"SQLPRD_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SQLPRD'"
+		},
+		"SQLTST_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SQLTST'"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureSqlDatabase1_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/GemStarDB')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"connectionString": "[parameters('GemStarDB_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLPRD')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('SQLPRD_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLTST')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('SQLTST_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DFSPrd')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SQLPRD",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Date",
+						"type": "date"
+					},
+					{
+						"name": "CustomerId",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "SubcategoryId",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "State",
+						"type": "nvarchar"
+					},
+					{
+						"name": "PilotTime",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "IsOutlier",
+						"type": "nvarchar"
+					},
+					{
+						"name": "AorB",
+						"type": "nvarchar"
+					},
+					{
+						"name": "GrossMargin",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "Revenue",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "Confidence",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "ValueType",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IsActive",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TenantId",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "CreationDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "ItemsAmount",
+						"type": "float",
+						"precision": 15
+					}
+				],
+				"typeProperties": {
+					"schema": "DFS",
+					"table": "PBIConfidenceRaw"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SQLPRD')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/GemStarDB')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "GemStarDB",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "Gem",
+					"table": "PBIConfidenceRaw"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/GemStarDB')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "DFTtoGemStar",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "AzureSqlSource",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "SqlServerSink",
+								"tableOption": "autoCreate"
+							},
+							"enableStaging": false,
+							"validateDataConsistency": true,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DFSPrd",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "GemStarDB",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DFSPrd')]",
+				"[concat(variables('factoryId'), '/datasets/GemStarDB')]"
+			]
+		}
+	]
+}

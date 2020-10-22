@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "gsa2goadf"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"GemStarDB_connectionString": {
+			"value": ""
+		},
+		"SQLPRD_connectionString": {
+			"value": ""
+		},
+		"SQLTST_connectionString": {
+			"value": ""
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

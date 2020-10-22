@@ -1,0 +1,70 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "gsa2goadf"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
+		},
+		"GemStarDB_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'GemStarDB'"
+		},
+		"SQLPRD_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SQLPRD'"
+		},
+		"SQLTST_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SQLTST'"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "gsa2goadf_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureSqlDatabase1_connectionString": {
+						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
+					},
+					"GemStarDB_connectionString": {
+						"value": "[parameters('GemStarDB_connectionString')]"
+					},
+					"SQLPRD_connectionString": {
+						"value": "[parameters('SQLPRD_connectionString')]"
+					},
+					"SQLTST_connectionString": {
+						"value": "[parameters('SQLTST_connectionString')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

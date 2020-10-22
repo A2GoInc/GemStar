@@ -5,8 +5,8 @@
 		"annotations": [],
 		"type": "AzureSqlDatabase",
 		"typeProperties": {
-			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=dfssqlprd-a2go.database.windows.net;initial catalog=DFSDB;user id=opsadmin01",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkdTQTJHT0FERl8wZGZmMGQ4NC00M2UyLTQ2NmQtYjRlZS1mODk0M2MzYjljMjgiDQp9"
+			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=dfssqldev-a2go.database.windows.net;initial catalog=DFSDB;user id=opsadmin01",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkdTQTJHT0FERl82ZmJjNzRkMy05ZTY0LTQzMTQtYTMyNC1lNGQzY2I1M2E4ZDQiDQp9"
 		}
 	}
 }

@@ -818,7 +818,7 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "Gem",
-					"table": "PBIConfidenceRaw"
+					"table": "Revenue"
 				}
 			},
 			"dependsOn": [

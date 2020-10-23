@@ -1,0 +1,627 @@
+{
+	"name": "DFSTst",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQLTST",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "CompanyName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "GroupCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "BranchCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "BranchCodeInvoice",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "RequestNum",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "InvoiceNum",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "SaleTransNum",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "RequestDate",
+				"type": "date"
+			},
+			{
+				"name": "OrderBillingDate",
+				"type": "date"
+			},
+			{
+				"name": "OrderDeliveryDate",
+				"type": "date"
+			},
+			{
+				"name": "InvoiceIssueDate",
+				"type": "date"
+			},
+			{
+				"name": "CustomerCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CustomerCompName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FantasyName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PrimaryDeliveryAddress",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PrimaryDeliveryState",
+				"type": "varchar"
+			},
+			{
+				"name": "PrimaryDeliveryNeighborhood",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PrimaryDeliveryZipCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PrimaryDeliveryPhone",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PrimaryDeliveryCell",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Latitude",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Longitude",
+				"type": "nvarchar"
+			},
+			{
+				"name": "RegistrationDate",
+				"type": "date"
+			},
+			{
+				"name": "FJType",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DeliveryFedTaxCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DeliveryStateTaxCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CnaeCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "MarketType",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ActivityCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PrimaryCustomerCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PrimaryCustomerName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "MesoregionCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "MesoregionName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "MicroregionCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "MicroregionName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SupplierCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "SupplierName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SupplierFantasyName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PrimarySupplierCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PrimarySupplierName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SupplierAddress",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SupplierCountryCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "SupplierCountry",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SupplierState",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SupplierIBGECode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "SupplierCity",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SupplierNeighborhood",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SupplierZipCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SupplierPhone",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SupplierCell",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SupplierRegDate",
+				"type": "date"
+			},
+			{
+				"name": "SupplierFedTaxCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SupplierStateTaxCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BuyerCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "WaitingTime",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BrandCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Brand",
+				"type": "nvarchar"
+			},
+			{
+				"name": "HomeCountry",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DepartmentCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "DepartmentName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SessionCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Session",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProductCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Product",
+				"type": "varchar"
+			},
+			{
+				"name": "CategoryCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Category",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SubcategoryCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Subcategory",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NCM",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Unity",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Packing",
+				"type": "nvarchar"
+			},
+			{
+				"name": "MasterPacking",
+				"type": "nvarchar"
+			},
+			{
+				"name": "MerchandiseType",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Length",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Width",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Height",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PalletLine",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PalletLayer",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PalletQuantity",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "DaysExpire",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "HelpCode",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "HelpCode2",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ManagerCode",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ManagerName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SellerType",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SupervisorCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "SupervisorName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SellerCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "SellerName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FreightType",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TaxCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Note",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Note1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Note2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "OperatorCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DeliveryCity",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DeliveryState",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DeliveryZipCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DeliveryAddress",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DeliveryNeighborhood",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DeliveryCityCode",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "DeliveryIBGECode",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "TotalGrossVol",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "TotalNetVol",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "MASTotalGrossVol",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "MASTotalNetVol",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ItemsAmount",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "SalePrice",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "SaleValue",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ValueDiscount",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "AmountPosit",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "CoGS",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "FinCoGS",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ICMSTax",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ICMSSTTax",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "IPITax",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PISCred",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PISTax",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "CredCofins",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "CofinsTax",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "TotalTax",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PresumedCredit",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "GrossMargin",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "NetRevenue",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "GrossProfit",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Margin",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "BonusValue",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ProEmprego",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PresCredAmount",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "RegionNum",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "RegionName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FreightPerc",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "STValue",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PTable",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "CreationDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "DFS",
+			"table": "Revenue"
+		}
+	}
+}

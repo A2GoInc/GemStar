@@ -2,7 +2,7 @@
 	"name": "DFSPrd",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "SQLTST",
+			"referenceName": "SQLPRD",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,7 +10,7 @@
 		"schema": [],
 		"typeProperties": {
 			"schema": "DFS",
-			"table": "Revenue"
+			"table": "PBIConfidenceRaw"
 		}
 	}
 }

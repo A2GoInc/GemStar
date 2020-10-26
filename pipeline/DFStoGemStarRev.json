@@ -31,6 +31,7 @@
 							"type": "LinkedServiceReference"
 						}
 					},
+					"parallelCopies": 4,
 					"translator": {
 						"type": "TabularTranslator",
 						"typeConversion": true,

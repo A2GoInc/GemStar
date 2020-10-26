@@ -24,8 +24,13 @@
 						"type": "SqlServerSink",
 						"tableOption": "autoCreate"
 					},
-					"enableStaging": false,
-					"validateDataConsistency": true,
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "DFStoGemStarStag",
+							"type": "LinkedServiceReference"
+						}
+					},
 					"translator": {
 						"type": "TabularTranslator",
 						"typeConversion": true,

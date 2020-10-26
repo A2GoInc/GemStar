@@ -22,6 +22,10 @@
 		"SQLTST_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'SQLTST'"
+		},
+		"DFStoGemStarStag_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'DFStoGemStarStag'"
 		}
 	},
 	"variables": {
@@ -76,6 +80,19 @@
 				"type": "AzureSqlDatabase",
 				"typeProperties": {
 					"connectionString": "[parameters('SQLTST_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DFStoGemStarStag')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('DFStoGemStarStag_connectionString')]"
 				}
 			},
 			"dependsOn": []
@@ -782,8 +799,14 @@
 								"type": "SqlServerSink",
 								"tableOption": "autoCreate"
 							},
-							"enableStaging": false,
-							"validateDataConsistency": true,
+							"enableStaging": true,
+							"stagingSettings": {
+								"linkedServiceName": {
+									"referenceName": "DFStoGemStarStag",
+									"type": "LinkedServiceReference"
+								}
+							},
+							"parallelCopies": 4,
 							"translator": {
 								"type": "TabularTranslator",
 								"typeConversion": true,
@@ -813,7 +836,8 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/DFSTst')]",
-				"[concat(variables('factoryId'), '/datasets/GemStarDB')]"
+				"[concat(variables('factoryId'), '/datasets/GemStarDB')]",
+				"[concat(variables('factoryId'), '/linkedServices/DFStoGemStarStag')]"
 			]
 		},
 		{

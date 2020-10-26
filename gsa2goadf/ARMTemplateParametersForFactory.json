@@ -16,6 +16,9 @@
 		},
 		"SQLTST_connectionString": {
 			"value": ""
+		},
+		"DFStoGemStarStag_connectionString": {
+			"value": ""
 		}
 	}
 }
